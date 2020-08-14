@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "embrace-2020-model-api"
+version = "0.1.0"
+description = "HTTP wrapper around ML model"
+authors = ["Kevin Adler <kadler@us.ibm.com>"]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+flask = "^1.1.2"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.8.3"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
