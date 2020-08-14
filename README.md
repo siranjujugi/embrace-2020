@@ -43,8 +43,20 @@ There is a growing need in mitigating bias against specific communities in sente
 
 The overall solution is built using an Angular-based frontend which the judge or municipal employee can use to fill in their sentencing information. This frontend makes a request to a Python-based microservice built on Flask. The microservice is a simple shim to facilitate calling the model through an HTTP API request.
 
+#### Machine Learning Algorithm
 
-## Long description
+**Goal**:   
+Predict how likely a charge's sentencing will be very different if the convicted person was of a different race.
+
+**Algorithm training**:  
+1) Predict the sentence length  based on a wide range of factors including race,   
+2) identify scenarios where the length of the sentence would have been dramatically different if the convicted person's race was different,   
+3) use the same wide range of factors, excluding race, to identify factors and scenarios that predict a dramatically difference in sentence length depending on race.  
+  
+**Limitations**:   
+Some factors that might be results of racial bias or might capture information about decisions made with racial bias are included in the model that identifies racial discrepancies in sentencing. Including these factors likely decreases the scale of the racial bias we identify in a given case because some information about racial bias is being encoded in other non-race variables (like the number of charges levied for example). A potential way to address this maybe a sensitivity test in which we refit the model excluding each non-race variable one at a time and asses the the scale of identified racial discrepancy  (and the change in model accuracy). This would allow you to pinpoint which variables are encoding the most information that could be attributed to race.
+
+## Discussion
 
 People in Black Communities are faced with harsher downstream effects than people of other races for similar offenses. Our project attempts to analyze a given offense and the preliminary sentencing determination given by a judge to determine if that sentence falls in line with expectations where race is not a factor.
 
