@@ -43,6 +43,8 @@ There is a growing need in mitigating bias against specific communities in sente
 
 The overall solution is built using an Angular-based frontend which the judge or municipal employee can use to fill in their sentencing information. This frontend makes a request to a Python-based microservice built on Flask. The microservice is a simple shim to facilitate calling the model through an HTTP API request.
 
+![Architecture Diagram](./architecture.png?raw=true "Architecture Diagram")
+
 #### Machine Learning Algorithm
 
 **Goal**:   
