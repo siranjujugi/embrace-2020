@@ -33,7 +33,7 @@ TBD
 
 ### The idea
 
-TBD
+There is a growing need in mitigating bias against specific communities in sentencing process. This solution is primarily to bring in the exploratory data analysis and predictive modeling techniques to build a rational sentencing model which supplements the Judiciary System officials to evaluate unbiased sentencing criteria. This solution also trying to build an improved Decisive model which eradicates some of the inaccuracies in existing models.
 
 ## The architecture
 
