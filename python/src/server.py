@@ -27,7 +27,7 @@ PREDICT_SCHEMA = Schema({
     'LAW_ENFORCEMENT_AGENCY': And(str, len),
     'LAW_ENFORCEMENT_UNIT': And(str, len),
     'SENTENCE_TYPE': And(str, len)
-}, ignore_extra_keys=True)
+})
 
 PREDICT_KEYS = [
     'CHARGE_COUNT',
