@@ -6,10 +6,13 @@ authors = ["Kevin Adler <kadler@us.ibm.com>"]
 license = "Apache-2.0"
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.6.1"
 flask = "^1.1.2"
-scikit-learn = "^0.23.2"
 schema = "^0.7.3"
+scikit-learn = "0.22.2.post1"
+xgboost = "1.1.1"
+pandas = "1.0.3"
+numpy = "1.18.2"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.3"
