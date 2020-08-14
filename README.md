@@ -1,8 +1,8 @@
-# Submission name
+# Open Sentencing Model
 
 [![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/badge/Join-Slack-blue)](https://callforcode.org/slack) [![Website](https://img.shields.io/badge/View-Website-blue)](https://code-and-response.github.io/Project-Sample/)
 
-A basic GitHub repository example for Call for Code submissions and those projects that join the Code and Response initiative. Not all sections or files are required. You can make this as simple or as in-depth as you need.
+The basic notion of this project is to predict how likely a charge's sentencing will be very different if the convicted person was of a different race.
 
 ## Contents
 
@@ -29,7 +29,11 @@ People in the Black Community are faced with harsher downstream effects (charged
 
 ### How can technology help?
 
-TBD
+With the help of Data Science techniques, the below can be arrived :
+
+(1) Predict the sentence length  based on a wide range of factors including race, 
+(2) identify scenarios where the length of the sentence would have been dramatically different if the convicted person's race was different, 
+(3) use the same wide range of factors, excluding race, to identify factors and scenarios that predict a dramatically difference in sentence length depending on race.
 
 ### The idea
 
