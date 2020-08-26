@@ -4,9 +4,11 @@
 import pickle
 import pandas as pd
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from schema import Schema, And, Or, SchemaError
 
 app = Flask(__name__)
+CORS(app)
 model = pickle.load(open('model.pkl', 'rb'))
 
 PREDICT_SCHEMA = Schema({
@@ -44,6 +46,10 @@ PREDICT_KEYS = [
     'LAW_ENFORCEMENT_AGENCY'
 ]
 
+@app.route("/")
+def index() -> str:
+    return jsonify({"message": "It Works"})
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -59,3 +65,6 @@ def predict():
     return {
         'years_of_racial_bias_sentencing_discrepency': float(probability[0]),
     }
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=True, port=80)
