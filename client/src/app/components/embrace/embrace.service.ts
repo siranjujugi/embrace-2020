@@ -12,7 +12,6 @@ export class EmbraceService {
   submitData(formData: any) {
     console.log('Submitting new request on Embrace.');
     const data = this.converToPascalCase(formData);
-    console.log(data);
     return this.http.post(`${environment.defaultUIPath}/predict`, data);
   }
 
