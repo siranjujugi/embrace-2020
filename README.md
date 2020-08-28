@@ -84,7 +84,21 @@ TBD
 ## Running the tests
 
 Explain how to run the automated tests for this system
+Run Following Commands:
 
+### To Run fullstack Application
+ - docker-compose build
+ - docker-compose up
+### To run front-end
+ - cd client/
+ - docker build -t `<image name>` .
+ - docker run --rm --name `<image name>` -p 4201:4201 `<container name>`
+
+ ### To run back-end
+ - cd python/
+ - docker build -t `<image name>` .
+ - docker run --rm --name `<image name>` -p 8080:8080 `<container name>`
+ 
 ### Break down into end to end tests
 
 TBD
