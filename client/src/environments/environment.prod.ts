@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  defaultUIPath: 'http://localhost:8080'
+  defaultUIPath: 'http://embrace2020backend.26730158.svc.cluster.local/'
 };
