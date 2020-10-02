@@ -1,8 +1,8 @@
-<nav class="navbar navbar-dark bg-primary">
-  <h1 class="navbar-brand">{{ title }}</h1>
-  <div class="navbar-expand ml-auto navbar-nav">
-    <div class="navbar-nav">
-      <button class="btn btn-primary" [hidden]="!isLoggedIn" disabled><i class="fa fa-user"></i> {{user}}</button>
-    </div>
-  </div>
-</nav>
+<ibm-header name="{{title}}" [route]="['cases']">
+    <ibm-hamburger *ngIf="hasHamburger" (click)="expanded($event)"></ibm-hamburger>
+    <ibm-header-navigation>
+        <ibm-header-item [route]="['']">Home</ibm-header-item>
+        <ibm-header-item [route]="['home/cases']">Cases</ibm-header-item>
+        <ibm-header-item [route]="['home/embrace']">Bias Detection</ibm-header-item>
+    </ibm-header-navigation>
+</ibm-header>
