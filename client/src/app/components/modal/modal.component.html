@@ -1,10 +1,14 @@
-<ibm-modal [size]="size" (overlaySelected)="closeModal()">
+<ibm-modal [size]="lg" (overlaySelected)="closeModal()">
     <ibm-modal-header (closeSelect)="closeModal()">
         <h4 ibmModalHeaderHeading>{{modalText}}</h4>
     </ibm-modal-header>
-    <section class="bx--modal-content">
+    <section ibmModalContent hasForm="true" class="bx--modal-content">
+        <div ibmCol>
+            <div style="display: flex;">
+                <ibm-progress-indicator [steps]="steps" [current]="current"></ibm-progress-indicator>
+            </div>
+        </div>
         <div>
-            <ibm-progress-indicator [steps]="defaultSteps " [current]="current " (stepSelected)="stepSelected($event) "></ibm-progress-indicator>
             <ibm-label class="modal-text">
                 Case name
                 <input ibmText [(ngModel)]="inputValue1">

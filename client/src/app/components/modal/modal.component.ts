@@ -33,7 +33,7 @@ export class ModalComponent extends BaseModal implements OnInit {
       tooltip: { content: 'Overflow tooltip content.', trigger: 'click', placement: 'bottom' }
     }];
     orientation = 'horizontal';
-    current = 1;
+    current = 0;
 
     // dummy charges record
     charges = ['Second degree armed assault', 'Charge1', 'Charge2', 'Charge3', 'Charge4'];
