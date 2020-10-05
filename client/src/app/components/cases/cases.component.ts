@@ -15,6 +15,7 @@ export class CaseComponent implements OnInit {
 
   // table values
   model = new TableModel();
+  originalModelData;
   tableSize = 'md';
   striped = true;
   isDataGrid = false;
@@ -51,7 +52,7 @@ export class CaseComponent implements OnInit {
 
   ngOnInit() {
     this.model.data = [
-      [new TableItem({ data: 'Spivack v US' }), new TableItem({ data: 'This case is about an armed robbery.' }),
+      [new TableItem({ data: 'han v US' }), new TableItem({ data: 'This case is about an armed robbery.' }),
       new TableItem({ data: 1927 }), new TableItem({ data: 43 }),
       new TableItem({ data: { id: '1' }, template: this.overflowMenuItemTemplate })],
       [new TableItem({ data: 'Spivack v US' }), new TableItem({ data: 'This case is about an armed robbery.' }),
@@ -80,6 +81,7 @@ export class CaseComponent implements OnInit {
       new TableHeaderItem({ data: '# of insights' }),
       new TableHeaderItem({ data: '' })
     ];
+    this.originalModelData = this.model.data;
   }
 
   onRowClick(index: number) {
@@ -94,5 +96,15 @@ export class CaseComponent implements OnInit {
         size: this.modalSize
       }
     });
+  }
+
+  searchValueChange(value: string) {
+    if (value) {
+      this.model.data = this.model.data.filter(
+        (item) => item[0].data.includes(value) || item[1].data.includes(value)
+      )
+    } else {
+      this.model.data = this.originalModelData;
+    }
   }
 }
