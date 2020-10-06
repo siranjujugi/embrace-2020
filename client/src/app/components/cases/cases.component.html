@@ -20,7 +20,11 @@
                 <ibm-table-container>
                     <ibm-table-toolbar>
                         <ibm-table-toolbar-content>
-                            <ibm-table-toolbar-search [expandable]="true" placeholder="Search in Dashboard" (change)="searchValueChange($event.value)"></ibm-table-toolbar-search>
+                            <ibm-table-toolbar-search
+                              [expandable]="true"
+                              placeholder="Search"
+                              (valueChange)="filterModelData($event)">
+                            </ibm-table-toolbar-search>
                             <button ibmButton="primary" size="sm" (click)="openCaseModal()">
                       Add a new case<ibm-icon-add size="20" class="bx--btn__icon"></ibm-icon-add>
                     </button>

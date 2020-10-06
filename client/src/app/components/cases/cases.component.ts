@@ -12,7 +12,6 @@ import { Observable, Subject } from 'rxjs';
 export class CaseComponent implements OnInit {
   @ViewChild('overflowMenuItemTemplate', { static: true })
   protected overflowMenuItemTemplate: TemplateRef<any>;
-
   // table values
   model = new TableModel();
   originalModelData;
@@ -98,10 +97,12 @@ export class CaseComponent implements OnInit {
     });
   }
 
-  searchValueChange(value: string) {
-    if (value) {
+  filterModelData(searchValue: string) {
+    if (searchValue) {
+      searchValue = searchValue.toLowerCase();
       this.model.data = this.model.data.filter(
-        (item) => item[0].data.includes(value) || item[1].data.includes(value)
+        (item) => item[0].data.toLowerCase().includes(searchValue)
+               || item[1].data.toLowerCase().includes(searchValue)
       )
     } else {
       this.model.data = this.originalModelData;
