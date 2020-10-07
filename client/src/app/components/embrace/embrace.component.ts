@@ -19,11 +19,11 @@ export class EmbraceComponent implements OnInit {
   initialize() {
     this.submitOffenseForm = new FormGroup({
       chargeCount: new FormControl(),
-      isChargeDisposition: new FormControl('NONE'),
+      chargeDisposition: new FormControl(),
       offenseCategory: new FormControl(),
-      isPrimaryCharge: new FormControl('NONE'),
-      offenseTitle: new FormControl(),
-      chargedClass: new FormControl(),
+      primaryChargeFlag: new FormControl('NONE'),
+      dispositionChargedOffenseTitle: new FormControl(),
+      dispositionChargedClass: new FormControl(),
       sentenceJudge: new FormControl(),
       sentencePhase: new FormControl(),
       commitmentTerm: new FormControl(),
@@ -49,22 +49,17 @@ export class EmbraceComponent implements OnInit {
       this.message = 'All the fields are required. Please enter the valid information and submit again.';
     } else {
       this.message = undefined;
-
-      if (this.submitOffenseForm.value.isChargeDisposition.toLowerCase() === 'true') {
-        this.submitOffenseForm.value.isChargeDisposition = true;
+      // console.log("primary Flag: ", this.submitOffenseForm.value.primaryChargeFlag);
+      if (this.submitOffenseForm.value.primaryChargeFlag.toLowerCase() === 'true') {
+        this.submitOffenseForm.value.primaryChargeFlag = true;
       } else {
-        this.submitOffenseForm.value.isChargeDisposition = false;
-      }
-      if (this.submitOffenseForm.value.isPrimaryCharge.toLowerCase() === 'true') {
-        this.submitOffenseForm.value.isPrimaryCharge = true;
-      } else {
-        this.submitOffenseForm.value.isPrimaryCharge = false;
+        this.submitOffenseForm.value.primaryChargeFlag = false;
       }
       this.embraceService.submitData(this.submitOffenseForm.value)
         .subscribe((data: any) =>  {
-          if (data && data.success) {
+          if (data) {
             this.isValid = true;
-            this.message = data.message ? data.message : 'Close Order request submitted successfully.';
+            this.message = data.years_of_racial_bias_sentencing_discrepency;
             this.initialize();
           } else {
             this.isValid = false;
@@ -77,10 +72,14 @@ export class EmbraceComponent implements OnInit {
   validateData(formData): boolean {
     if (
       !formData ||
-      !formData.documentId ||
-      !formData.isSuccess ||
-      formData.isSuccess === 'NONE' ||
-      !formData.description
+      !formData.chargeCount ||
+      !formData.chargeDisposition ||
+      formData.primaryChargeFlag === 'NONE' ||
+      !formData.offenseCategory || !formData.dispositionChargedOffenseTitle || !formData.dispositionChargedClass
+      || !formData.sentenceJudge || !formData.sentencePhase || !formData.commitmentTerm
+      || !formData.commitmentUnit || !formData.lengthOfCase || !formData.ageAtIncident
+      || !formData.race || !formData.gender || !formData.incidentCity || !formData.lawEnforcementAgency
+      || !formData.lawEnforcementUnit || !formData.sentenceType
     ) {
       return false;
     }

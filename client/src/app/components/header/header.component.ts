@@ -8,7 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  title = 'Embrace DASHBOARD';
+  title = 'Defender';
+  isCurrentPage = true;
 
   @Input() isLoggedIn;
   @Input() user;
